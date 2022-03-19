@@ -8,9 +8,9 @@
 
 2. [사용스택](#사용스택)
 
-3. [Project Period](#Project Period)
+3. [Project Period](#Project-Period)
 
-4. [프로젝트세팅](#프로젝트 세팅)
+4. [프로젝트세팅](#프로젝트-세팅)
 
    
 
