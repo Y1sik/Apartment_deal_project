@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="com.mycom.myboard.dao.ReviewDao">
+
+	<insert id="reviewInsert" parameterType="com.mycom.myboard.dto.ReviewDto" useGeneratedKeys="true" keyProperty="reviewId">
+		INSERT INTO REVIEW ( USER_SEQ, TITLE, CONTENT, REG_DT, READ_COUNT )
+		            VALUES ( #{userSeq}, #{title}, #{content}, now(), 0 )
+	</insert>
+	
+	<insert id="reviewFileInsert" parameterType="com.mycom.myboard.dto.ReviewFileDto">
+		INSERT INTO REVIEW_FILE ( REVIEW_ID, FILE_NAME, FILE_SIZE, FILE_CONTENT_TYPE, FILE_URL )
+		            VALUES ( #{reviewId}, #{fileName}, #{fileSize}, #{fileContentType}, #{fileUrl} )
+	</insert>
+	
+	<!-- reg_dt : LocalDateTime, check out BoardDto setter  -->
+	<select id="reviewList" parameterType="map" resultType="com.mycom.myboard.dto.ReviewDto">
+		SELECT b.REVIEW_ID, b.USER_SEQ, u.USER_NAME, u.USER_PROFILE_IMAGE_URL,
+		  	   b.TITLE, b.CONTENT, b.REG_DT, b.READ_COUNT
+		  FROM REVIEW b, USER u
+		 WHERE b.USER_SEQ = u.USER_SEQ
+		 ORDER BY b.REVIEW_ID DESC
+		 LIMIT #{limit} OFFSET #{offset}
+	</select>
+	
+	<select id="reviewListTotalCount" resultType="int">
+		SELECT COUNT(*) FROM REVIEW
+	</select>
+	
+	<select id="reviewListSearchWord" parameterType="map" resultType="com.mycom.myboard.dto.ReviewDto">
+		SELECT b.REVIEW_ID, b.USER_SEQ, u.USER_NAME, u.USER_PROFILE_IMAGE_URL,
+		  	   b.TITLE, b.CONTENT, b.REG_DT, b.READ_COUNT
+		  FROM REVIEW b, USER u
+		  WHERE b.USER_SEQ = u.USER_SEQ
+		    AND b.TITLE LIKE CONCAT('%', #{searchWord} ,'%')
+		  ORDER BY b.REVIEW_ID DESC
+		  LIMIT #{limit} OFFSET #{offset}
+	</select>
+	
+	<select id="reviewListSearchWordTotalCount" parameterType="string" resultType="int">
+		SELECT COUNT(*)
+		  FROM REVIEW
+		 WHERE TITLE LIKE CONCAT('%', #{searchWord} ,'%')
+	</select>
+	
+	<update id="reviewUpdate" parameterType="com.mycom.myboard.dto.ReviewDto">
+		UPDATE REVIEW
+		   SET TITLE = #{title},
+		   CONTENT   = #{content}
+		 WHERE REVIEW_ID = #{reviewId}
+	</update>
+	
+	<delete id="reviewDelete" parameterType="int">
+		DELETE FROM REVIEW WHERE REVIEW_ID = #{reviewId}
+	</delete>
+	
+	<delete id="reviewFileDelete" parameterType="int">
+		DELETE FROM REVIEW_FILE WHERE REVIEW_ID = #{reviewId}
+	</delete>
+	
+	<select id="reviewFileUrlDeleteList" parameterType="int" resultType="string">
+		SELECT FILE_URL FROM REVIEW_FILE WHERE REVIEW_ID = #{reviewId}
+	</select>
+
+	<select id="reviewDetail" parameterType="int" resultType="com.mycom.myboard.dto.ReviewDto">
+		SELECT b.REVIEW_ID, b.USER_SEQ, u.USER_NAME, u.USER_PROFILE_IMAGE_URL,
+			   b.TITLE, b.CONTENT, b.REG_DT, b.READ_COUNT
+		  FROM REVIEW b, USER u
+		 WHERE b.REVIEW_ID = #{reviewId}
+		   AND b.USER_SEQ = u.USER_SEQ
+	</select>
+	
+	<select id="reviewDetailFileList" parameterType="int" resultType="com.mycom.myboard.dto.ReviewFileDto">
+		SELECT REVIEW_ID, FILE_ID, FILE_NAME, FILE_SIZE, FILE_CONTENT_TYPE, 
+		       FILE_URL, REG_DT
+		  FROM REVIEW_FILE
+		 WHERE REVIEW_ID = #{reviewId}
+	</select>
+	
+	<!-- Dao use Dto -->
+	<select id="reviewUserReadCount" parameterType="map" resultType="int">
+		SELECT count(*) FROM review_user_read WHERE review_id = #{reviewId} and user_seq = #{userSeq}
+	</select>
+	
+	<!-- Dao use @param -->
+	<insert id="reviewUserReadInsert" parameterType="map">
+		INSERT INTO review_user_read ( review_id, user_seq )
+		            VALUES ( #{reviewId}, #{userSeq} )
+	</insert>
+	
+	<update id="reviewReadCountUpdate" parameterType="int">
+		UPDATE review set READ_COUNT = READ_COUNT + 1
+		 WHERE REVIEW_ID = #{reviewId}
+	</update>
+	
+	<update id="reviewReadCountDelete" parameterType="int">
+		DELETE FROM review_user_read WHERE REVIEW_ID = #{reviewId}
+	</update>
+	
+	
+
+</mapper>

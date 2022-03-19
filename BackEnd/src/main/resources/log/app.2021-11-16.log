@@ -1,0 +1,287 @@
+2021-11-16 13:31:21 [restartedMain] INFO c.m.m.BoardFileUploadSpringBootMybatisApplication - Starting BoardFileUploadSpringBootMybatisApplication using Java 1.8.0_292 on DESKTOP-CSD5KA7 with PID 10308 (C:\springboot\SpringBootVueBoardFileUploadMybatis\bin\main started by user in C:\springboot\SpringBootVueBoardFileUploadMybatis) 
+2021-11-16 13:31:21 [restartedMain] DEBUG c.m.m.BoardFileUploadSpringBootMybatisApplication - Running with Spring Boot v2.5.6, Spring v5.3.12 
+2021-11-16 13:31:21 [restartedMain] INFO c.m.m.BoardFileUploadSpringBootMybatisApplication - No active profile set, falling back to default profiles: default 
+2021-11-16 13:31:21 [restartedMain] INFO o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable 
+2021-11-16 13:31:21 [restartedMain] INFO o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG' 
+2021-11-16 13:31:22 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port(s): 8080 (http) 
+2021-11-16 13:31:22 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2021-11-16 13:31:22 [restartedMain] INFO o.a.c.c.StandardService - Starting service [Tomcat] 
+2021-11-16 13:31:22 [restartedMain] INFO o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.54] 
+2021-11-16 13:31:22 [restartedMain] INFO o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext 
+2021-11-16 13:31:22 [restartedMain] INFO o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 929 ms 
+2021-11-16 13:31:23 [restartedMain] INFO o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2021-11-16 13:31:23 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2021-11-16 13:31:23 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '' 
+2021-11-16 13:31:23 [restartedMain] INFO c.m.m.BoardFileUploadSpringBootMybatisApplication - Started BoardFileUploadSpringBootMybatisApplication in 1.861 seconds (JVM running for 2.783) 
+2021-11-16 13:31:38 [http-nio-8080-exec-1] INFO o.a.c.c.C.[.[.[/] - Initializing Spring DispatcherServlet 'dispatcherServlet' 
+2021-11-16 13:31:38 [http-nio-8080-exec-1] INFO o.s.w.s.DispatcherServlet - Initializing Servlet 'dispatcherServlet' 
+2021-11-16 13:31:38 [http-nio-8080-exec-1] INFO o.s.w.s.DispatcherServlet - Completed initialization in 2 ms 
+2021-11-16 13:31:44 [http-nio-8080-exec-3] INFO c.z.h.HikariDataSource - HikariPool-1 - Starting... 
+2021-11-16 13:31:44 [http-nio-8080-exec-3] INFO c.z.h.HikariDataSource - HikariPool-1 - Start completed. 
+2021-11-16 13:31:44 [http-nio-8080-exec-3] DEBUG c.m.m.d.L.login - ==>  Preparing: SELECT USER_SEQ as userSeq, USER_NAME as userName, USER_PASSWORD as userPassword, USER_EMAIL as userEmail, USER_PROFILE_IMAGE_URL, USER_REGISTER_DATE as userRegisterDate FROM USER WHERE USER_EMAIL = ? 
+2021-11-16 13:31:44 [http-nio-8080-exec-3] DEBUG c.m.m.d.L.login - ==> Parameters: tpgjs(String) 
+2021-11-16 13:31:44 [http-nio-8080-exec-3] DEBUG c.m.m.d.L.login - <==      Total: 1 
+2021-11-16 13:31:44 [http-nio-8080-exec-4] DEBUG c.m.m.d.B.boardList - ==>  Preparing: SELECT b.BOARD_ID, b.USER_SEQ, u.USER_NAME, u.USER_PROFILE_IMAGE_URL, b.TITLE, b.CONTENT, b.REG_DT, b.READ_COUNT FROM BOARD b, USER u WHERE b.USER_SEQ = u.USER_SEQ ORDER BY b.BOARD_ID DESC LIMIT ? OFFSET ? 
+2021-11-16 13:31:44 [http-nio-8080-exec-4] DEBUG c.m.m.d.B.boardList - ==> Parameters: 10(Integer), 0(Integer) 
+2021-11-16 13:31:44 [http-nio-8080-exec-4] DEBUG c.m.m.d.B.boardList - <==      Total: 10 
+2021-11-16 13:31:44 [http-nio-8080-exec-4] DEBUG c.m.m.d.B.boardListTotalCount - ==>  Preparing: SELECT COUNT(*) FROM BOARD 
+2021-11-16 13:31:44 [http-nio-8080-exec-4] DEBUG c.m.m.d.B.boardListTotalCount - ==> Parameters:  
+2021-11-16 13:31:44 [http-nio-8080-exec-4] DEBUG c.m.m.d.B.boardListTotalCount - <==      Total: 1 
+2021-11-16 13:31:54 [http-nio-8080-exec-5] DEBUG c.m.m.d.B.boardUserReadCount - ==>  Preparing: SELECT count(*) FROM board_user_read WHERE board_id = ? and user_seq = ? 
+2021-11-16 13:31:54 [http-nio-8080-exec-5] DEBUG c.m.m.d.B.boardUserReadCount - ==> Parameters: 3162(Integer), 3(Integer) 
+2021-11-16 13:31:54 [http-nio-8080-exec-5] DEBUG c.m.m.d.B.boardUserReadCount - <==      Total: 1 
+2021-11-16 13:31:54 [http-nio-8080-exec-5] DEBUG c.m.m.d.B.boardDetail - ==>  Preparing: SELECT b.BOARD_ID, b.USER_SEQ, u.USER_NAME, u.USER_PROFILE_IMAGE_URL, b.TITLE, b.CONTENT, b.REG_DT, b.READ_COUNT FROM BOARD b, USER u WHERE b.BOARD_ID = ? AND b.USER_SEQ = u.USER_SEQ 
+2021-11-16 13:31:54 [http-nio-8080-exec-5] DEBUG c.m.m.d.B.boardDetail - ==> Parameters: 3162(Integer) 
+2021-11-16 13:31:54 [http-nio-8080-exec-5] DEBUG c.m.m.d.B.boardDetail - <==      Total: 1 
+2021-11-16 13:31:54 [http-nio-8080-exec-5] DEBUG c.m.m.d.B.boardDetailFileList - ==>  Preparing: SELECT BOARD_ID, FILE_ID, FILE_NAME, FILE_SIZE, FILE_CONTENT_TYPE, FILE_URL, REG_DT FROM BOARD_FILE WHERE BOARD_ID = ? 
+2021-11-16 13:31:54 [http-nio-8080-exec-5] DEBUG c.m.m.d.B.boardDetailFileList - ==> Parameters: 3162(Integer) 
+2021-11-16 13:31:54 [http-nio-8080-exec-5] DEBUG c.m.m.d.B.boardDetailFileList - <==      Total: 1 
+2021-11-16 13:32:42 [http-nio-8080-exec-6] DEBUG c.m.m.d.B.boardUserReadCount - ==>  Preparing: SELECT count(*) FROM board_user_read WHERE board_id = ? and user_seq = ? 
+2021-11-16 13:32:42 [http-nio-8080-exec-6] DEBUG c.m.m.d.B.boardUserReadCount - ==> Parameters: 3162(Integer), 3(Integer) 
+2021-11-16 13:32:42 [http-nio-8080-exec-6] DEBUG c.m.m.d.B.boardUserReadCount - <==      Total: 1 
+2021-11-16 13:32:42 [http-nio-8080-exec-6] DEBUG c.m.m.d.B.boardDetail - ==>  Preparing: SELECT b.BOARD_ID, b.USER_SEQ, u.USER_NAME, u.USER_PROFILE_IMAGE_URL, b.TITLE, b.CONTENT, b.REG_DT, b.READ_COUNT FROM BOARD b, USER u WHERE b.BOARD_ID = ? AND b.USER_SEQ = u.USER_SEQ 
+2021-11-16 13:32:42 [http-nio-8080-exec-6] DEBUG c.m.m.d.B.boardDetail - ==> Parameters: 3162(Integer) 
+2021-11-16 13:32:42 [http-nio-8080-exec-6] DEBUG c.m.m.d.B.boardDetail - <==      Total: 1 
+2021-11-16 13:32:42 [http-nio-8080-exec-6] DEBUG c.m.m.d.B.boardDetailFileList - ==>  Preparing: SELECT BOARD_ID, FILE_ID, FILE_NAME, FILE_SIZE, FILE_CONTENT_TYPE, FILE_URL, REG_DT FROM BOARD_FILE WHERE BOARD_ID = ? 
+2021-11-16 13:32:42 [http-nio-8080-exec-6] DEBUG c.m.m.d.B.boardDetailFileList - ==> Parameters: 3162(Integer) 
+2021-11-16 13:32:42 [http-nio-8080-exec-6] DEBUG c.m.m.d.B.boardDetailFileList - <==      Total: 1 
+2021-11-16 13:32:49 [http-nio-8080-exec-8] WARN o.s.v.DataBinder - Skipping URI variable 'boardId' because request contains bind value with same name. 
+2021-11-16 13:32:49 [http-nio-8080-exec-8] DEBUG c.m.m.d.B.boardUpdate - ==>  Preparing: UPDATE BOARD SET TITLE = ?, CONTENT = ? WHERE BOARD_ID = ? 
+2021-11-16 13:32:49 [http-nio-8080-exec-8] DEBUG c.m.m.d.B.boardUpdate - ==> Parameters: 사진올리기(String), <p>사진올리기11</p>(String), 3162(Integer) 
+2021-11-16 13:32:49 [http-nio-8080-exec-8] DEBUG c.m.m.d.B.boardUpdate - <==    Updates: 1 
+2021-11-16 13:32:49 [http-nio-8080-exec-8] DEBUG c.m.m.d.B.boardFileUrlDeleteList - ==>  Preparing: SELECT FILE_URL FROM BOARD_FILE WHERE BOARD_ID = ? 
+2021-11-16 13:32:49 [http-nio-8080-exec-8] DEBUG c.m.m.d.B.boardFileUrlDeleteList - ==> Parameters: 3162(Integer) 
+2021-11-16 13:32:49 [http-nio-8080-exec-8] DEBUG c.m.m.d.B.boardFileUrlDeleteList - <==      Total: 1 
+2021-11-16 13:32:49 [http-nio-8080-exec-8] DEBUG c.m.m.d.B.boardFileDelete - ==>  Preparing: DELETE FROM BOARD_FILE WHERE BOARD_ID = ? 
+2021-11-16 13:32:49 [http-nio-8080-exec-8] DEBUG c.m.m.d.B.boardFileDelete - ==> Parameters: 3162(Integer) 
+2021-11-16 13:32:49 [http-nio-8080-exec-8] DEBUG c.m.m.d.B.boardFileDelete - <==    Updates: 1 
+2021-11-16 13:32:49 [http-nio-8080-exec-9] DEBUG c.m.m.d.B.boardList - ==>  Preparing: SELECT b.BOARD_ID, b.USER_SEQ, u.USER_NAME, u.USER_PROFILE_IMAGE_URL, b.TITLE, b.CONTENT, b.REG_DT, b.READ_COUNT FROM BOARD b, USER u WHERE b.USER_SEQ = u.USER_SEQ ORDER BY b.BOARD_ID DESC LIMIT ? OFFSET ? 
+2021-11-16 13:32:49 [http-nio-8080-exec-9] DEBUG c.m.m.d.B.boardList - ==> Parameters: 10(Integer), 0(Integer) 
+2021-11-16 13:32:49 [http-nio-8080-exec-9] DEBUG c.m.m.d.B.boardList - <==      Total: 10 
+2021-11-16 13:32:49 [http-nio-8080-exec-9] DEBUG c.m.m.d.B.boardListTotalCount - ==>  Preparing: SELECT COUNT(*) FROM BOARD 
+2021-11-16 13:32:49 [http-nio-8080-exec-9] DEBUG c.m.m.d.B.boardListTotalCount - ==> Parameters:  
+2021-11-16 13:32:49 [http-nio-8080-exec-9] DEBUG c.m.m.d.B.boardListTotalCount - <==      Total: 1 
+2021-11-16 13:32:52 [http-nio-8080-exec-10] DEBUG c.m.m.d.B.boardUserReadCount - ==>  Preparing: SELECT count(*) FROM board_user_read WHERE board_id = ? and user_seq = ? 
+2021-11-16 13:32:52 [http-nio-8080-exec-10] DEBUG c.m.m.d.B.boardUserReadCount - ==> Parameters: 3162(Integer), 3(Integer) 
+2021-11-16 13:32:52 [http-nio-8080-exec-10] DEBUG c.m.m.d.B.boardUserReadCount - <==      Total: 1 
+2021-11-16 13:32:52 [http-nio-8080-exec-10] DEBUG c.m.m.d.B.boardDetail - ==>  Preparing: SELECT b.BOARD_ID, b.USER_SEQ, u.USER_NAME, u.USER_PROFILE_IMAGE_URL, b.TITLE, b.CONTENT, b.REG_DT, b.READ_COUNT FROM BOARD b, USER u WHERE b.BOARD_ID = ? AND b.USER_SEQ = u.USER_SEQ 
+2021-11-16 13:32:52 [http-nio-8080-exec-10] DEBUG c.m.m.d.B.boardDetail - ==> Parameters: 3162(Integer) 
+2021-11-16 13:32:52 [http-nio-8080-exec-10] DEBUG c.m.m.d.B.boardDetail - <==      Total: 1 
+2021-11-16 13:32:52 [http-nio-8080-exec-10] DEBUG c.m.m.d.B.boardDetailFileList - ==>  Preparing: SELECT BOARD_ID, FILE_ID, FILE_NAME, FILE_SIZE, FILE_CONTENT_TYPE, FILE_URL, REG_DT FROM BOARD_FILE WHERE BOARD_ID = ? 
+2021-11-16 13:32:52 [http-nio-8080-exec-10] DEBUG c.m.m.d.B.boardDetailFileList - ==> Parameters: 3162(Integer) 
+2021-11-16 13:32:52 [http-nio-8080-exec-10] DEBUG c.m.m.d.B.boardDetailFileList - <==      Total: 0 
+2021-11-16 13:32:57 [http-nio-8080-exec-1] WARN o.s.v.DataBinder - Skipping URI variable 'boardId' because request contains bind value with same name. 
+2021-11-16 13:32:57 [http-nio-8080-exec-1] DEBUG c.m.m.d.B.boardUpdate - ==>  Preparing: UPDATE BOARD SET TITLE = ?, CONTENT = ? WHERE BOARD_ID = ? 
+2021-11-16 13:32:57 [http-nio-8080-exec-1] DEBUG c.m.m.d.B.boardUpdate - ==> Parameters: 사진올리기11(String), <p>사진올리기11</p>(String), 3162(Integer) 
+2021-11-16 13:32:57 [http-nio-8080-exec-1] DEBUG c.m.m.d.B.boardUpdate - <==    Updates: 1 
+2021-11-16 13:32:57 [http-nio-8080-exec-1] DEBUG c.m.m.d.B.boardFileUrlDeleteList - ==>  Preparing: SELECT FILE_URL FROM BOARD_FILE WHERE BOARD_ID = ? 
+2021-11-16 13:32:57 [http-nio-8080-exec-1] DEBUG c.m.m.d.B.boardFileUrlDeleteList - ==> Parameters: 3162(Integer) 
+2021-11-16 13:32:57 [http-nio-8080-exec-1] DEBUG c.m.m.d.B.boardFileUrlDeleteList - <==      Total: 0 
+2021-11-16 13:32:57 [http-nio-8080-exec-1] DEBUG c.m.m.d.B.boardFileDelete - ==>  Preparing: DELETE FROM BOARD_FILE WHERE BOARD_ID = ? 
+2021-11-16 13:32:57 [http-nio-8080-exec-1] DEBUG c.m.m.d.B.boardFileDelete - ==> Parameters: 3162(Integer) 
+2021-11-16 13:32:57 [http-nio-8080-exec-1] DEBUG c.m.m.d.B.boardFileDelete - <==    Updates: 0 
+2021-11-16 13:32:57 [http-nio-8080-exec-2] DEBUG c.m.m.d.B.boardList - ==>  Preparing: SELECT b.BOARD_ID, b.USER_SEQ, u.USER_NAME, u.USER_PROFILE_IMAGE_URL, b.TITLE, b.CONTENT, b.REG_DT, b.READ_COUNT FROM BOARD b, USER u WHERE b.USER_SEQ = u.USER_SEQ ORDER BY b.BOARD_ID DESC LIMIT ? OFFSET ? 
+2021-11-16 13:32:57 [http-nio-8080-exec-2] DEBUG c.m.m.d.B.boardList - ==> Parameters: 10(Integer), 0(Integer) 
+2021-11-16 13:32:57 [http-nio-8080-exec-2] DEBUG c.m.m.d.B.boardList - <==      Total: 10 
+2021-11-16 13:32:57 [http-nio-8080-exec-2] DEBUG c.m.m.d.B.boardListTotalCount - ==>  Preparing: SELECT COUNT(*) FROM BOARD 
+2021-11-16 13:32:57 [http-nio-8080-exec-2] DEBUG c.m.m.d.B.boardListTotalCount - ==> Parameters:  
+2021-11-16 13:32:57 [http-nio-8080-exec-2] DEBUG c.m.m.d.B.boardListTotalCount - <==      Total: 1 
+2021-11-16 13:40:16 [http-nio-8080-exec-4] DEBUG c.m.m.d.B.boardList - ==>  Preparing: SELECT b.BOARD_ID, b.USER_SEQ, u.USER_NAME, u.USER_PROFILE_IMAGE_URL, b.TITLE, b.CONTENT, b.REG_DT, b.READ_COUNT FROM BOARD b, USER u WHERE b.USER_SEQ = u.USER_SEQ ORDER BY b.BOARD_ID DESC LIMIT ? OFFSET ? 
+2021-11-16 13:40:16 [http-nio-8080-exec-4] DEBUG c.m.m.d.B.boardList - ==> Parameters: 10(Integer), 0(Integer) 
+2021-11-16 13:40:16 [http-nio-8080-exec-4] DEBUG c.m.m.d.B.boardList - <==      Total: 10 
+2021-11-16 13:40:16 [http-nio-8080-exec-4] DEBUG c.m.m.d.B.boardListTotalCount - ==>  Preparing: SELECT COUNT(*) FROM BOARD 
+2021-11-16 13:40:16 [http-nio-8080-exec-4] DEBUG c.m.m.d.B.boardListTotalCount - ==> Parameters:  
+2021-11-16 13:40:16 [http-nio-8080-exec-4] DEBUG c.m.m.d.B.boardListTotalCount - <==      Total: 1 
+2021-11-16 13:40:31 [http-nio-8080-exec-5] DEBUG c.m.m.d.B.boardList - ==>  Preparing: SELECT b.BOARD_ID, b.USER_SEQ, u.USER_NAME, u.USER_PROFILE_IMAGE_URL, b.TITLE, b.CONTENT, b.REG_DT, b.READ_COUNT FROM BOARD b, USER u WHERE b.USER_SEQ = u.USER_SEQ ORDER BY b.BOARD_ID DESC LIMIT ? OFFSET ? 
+2021-11-16 13:40:31 [http-nio-8080-exec-5] DEBUG c.m.m.d.B.boardList - ==> Parameters: 10(Integer), 0(Integer) 
+2021-11-16 13:40:31 [http-nio-8080-exec-5] DEBUG c.m.m.d.B.boardList - <==      Total: 10 
+2021-11-16 13:40:31 [http-nio-8080-exec-5] DEBUG c.m.m.d.B.boardListTotalCount - ==>  Preparing: SELECT COUNT(*) FROM BOARD 
+2021-11-16 13:40:31 [http-nio-8080-exec-5] DEBUG c.m.m.d.B.boardListTotalCount - ==> Parameters:  
+2021-11-16 13:40:31 [http-nio-8080-exec-5] DEBUG c.m.m.d.B.boardListTotalCount - <==      Total: 1 
+2021-11-16 13:44:23 [http-nio-8080-exec-7] DEBUG c.m.m.d.B.boardList - ==>  Preparing: SELECT b.BOARD_ID, b.USER_SEQ, u.USER_NAME, u.USER_PROFILE_IMAGE_URL, b.TITLE, b.CONTENT, b.REG_DT, b.READ_COUNT FROM BOARD b, USER u WHERE b.USER_SEQ = u.USER_SEQ ORDER BY b.BOARD_ID DESC LIMIT ? OFFSET ? 
+2021-11-16 13:44:23 [http-nio-8080-exec-7] DEBUG c.m.m.d.B.boardList - ==> Parameters: 10(Integer), 0(Integer) 
+2021-11-16 13:44:23 [http-nio-8080-exec-7] DEBUG c.m.m.d.B.boardList - <==      Total: 10 
+2021-11-16 13:44:23 [http-nio-8080-exec-7] DEBUG c.m.m.d.B.boardListTotalCount - ==>  Preparing: SELECT COUNT(*) FROM BOARD 
+2021-11-16 13:44:23 [http-nio-8080-exec-7] DEBUG c.m.m.d.B.boardListTotalCount - ==> Parameters:  
+2021-11-16 13:44:23 [http-nio-8080-exec-7] DEBUG c.m.m.d.B.boardListTotalCount - <==      Total: 1 
+2021-11-16 13:44:27 [http-nio-8080-exec-8] DEBUG c.m.m.d.B.boardList - ==>  Preparing: SELECT b.BOARD_ID, b.USER_SEQ, u.USER_NAME, u.USER_PROFILE_IMAGE_URL, b.TITLE, b.CONTENT, b.REG_DT, b.READ_COUNT FROM BOARD b, USER u WHERE b.USER_SEQ = u.USER_SEQ ORDER BY b.BOARD_ID DESC LIMIT ? OFFSET ? 
+2021-11-16 13:44:27 [http-nio-8080-exec-8] DEBUG c.m.m.d.B.boardList - ==> Parameters: 10(Integer), 0(Integer) 
+2021-11-16 13:44:27 [http-nio-8080-exec-8] DEBUG c.m.m.d.B.boardList - <==      Total: 10 
+2021-11-16 13:44:27 [http-nio-8080-exec-8] DEBUG c.m.m.d.B.boardListTotalCount - ==>  Preparing: SELECT COUNT(*) FROM BOARD 
+2021-11-16 13:44:27 [http-nio-8080-exec-8] DEBUG c.m.m.d.B.boardListTotalCount - ==> Parameters:  
+2021-11-16 13:44:27 [http-nio-8080-exec-8] DEBUG c.m.m.d.B.boardListTotalCount - <==      Total: 1 
+2021-11-16 13:44:33 [http-nio-8080-exec-9] DEBUG c.m.m.d.B.boardList - ==>  Preparing: SELECT b.BOARD_ID, b.USER_SEQ, u.USER_NAME, u.USER_PROFILE_IMAGE_URL, b.TITLE, b.CONTENT, b.REG_DT, b.READ_COUNT FROM BOARD b, USER u WHERE b.USER_SEQ = u.USER_SEQ ORDER BY b.BOARD_ID DESC LIMIT ? OFFSET ? 
+2021-11-16 13:44:33 [http-nio-8080-exec-9] DEBUG c.m.m.d.B.boardList - ==> Parameters: 10(Integer), 0(Integer) 
+2021-11-16 13:44:33 [http-nio-8080-exec-9] DEBUG c.m.m.d.B.boardList - <==      Total: 10 
+2021-11-16 13:44:33 [http-nio-8080-exec-9] DEBUG c.m.m.d.B.boardListTotalCount - ==>  Preparing: SELECT COUNT(*) FROM BOARD 
+2021-11-16 13:44:33 [http-nio-8080-exec-9] DEBUG c.m.m.d.B.boardListTotalCount - ==> Parameters:  
+2021-11-16 13:44:33 [http-nio-8080-exec-9] DEBUG c.m.m.d.B.boardListTotalCount - <==      Total: 1 
+2021-11-16 13:44:58 [http-nio-8080-exec-10] DEBUG c.m.m.d.B.boardList - ==>  Preparing: SELECT b.BOARD_ID, b.USER_SEQ, u.USER_NAME, u.USER_PROFILE_IMAGE_URL, b.TITLE, b.CONTENT, b.REG_DT, b.READ_COUNT FROM BOARD b, USER u WHERE b.USER_SEQ = u.USER_SEQ ORDER BY b.BOARD_ID DESC LIMIT ? OFFSET ? 
+2021-11-16 13:44:58 [http-nio-8080-exec-10] DEBUG c.m.m.d.B.boardList - ==> Parameters: 10(Integer), 0(Integer) 
+2021-11-16 13:44:58 [http-nio-8080-exec-10] DEBUG c.m.m.d.B.boardList - <==      Total: 10 
+2021-11-16 13:44:58 [http-nio-8080-exec-10] DEBUG c.m.m.d.B.boardListTotalCount - ==>  Preparing: SELECT COUNT(*) FROM BOARD 
+2021-11-16 13:44:58 [http-nio-8080-exec-10] DEBUG c.m.m.d.B.boardListTotalCount - ==> Parameters:  
+2021-11-16 13:44:58 [http-nio-8080-exec-10] DEBUG c.m.m.d.B.boardListTotalCount - <==      Total: 1 
+2021-11-16 13:45:24 [RMI TCP Connection(22)-127.0.0.1] INFO o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested. 
+2021-11-16 13:45:24 [RMI TCP Connection(22)-127.0.0.1] INFO c.z.h.HikariDataSource - HikariPool-1 - Shutdown initiated... 
+2021-11-16 13:45:24 [RMI TCP Connection(22)-127.0.0.1] INFO c.z.h.HikariDataSource - HikariPool-1 - Shutdown completed. 
+2021-11-16 13:45:33 [restartedMain] INFO c.m.m.BoardFileUploadSpringBootMybatisApplication - Starting BoardFileUploadSpringBootMybatisApplication using Java 1.8.0_292 on DESKTOP-CSD5KA7 with PID 12244 (C:\springboot\SpringBootVueBoardFileUploadMybatis\bin\main started by user in C:\springboot\SpringBootVueBoardFileUploadMybatis) 
+2021-11-16 13:45:33 [restartedMain] DEBUG c.m.m.BoardFileUploadSpringBootMybatisApplication - Running with Spring Boot v2.5.6, Spring v5.3.12 
+2021-11-16 13:45:33 [restartedMain] INFO c.m.m.BoardFileUploadSpringBootMybatisApplication - No active profile set, falling back to default profiles: default 
+2021-11-16 13:45:33 [restartedMain] INFO o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable 
+2021-11-16 13:45:33 [restartedMain] INFO o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG' 
+2021-11-16 13:45:34 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port(s): 8080 (http) 
+2021-11-16 13:45:34 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2021-11-16 13:45:34 [restartedMain] INFO o.a.c.c.StandardService - Starting service [Tomcat] 
+2021-11-16 13:45:34 [restartedMain] INFO o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.54] 
+2021-11-16 13:45:34 [restartedMain] INFO o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext 
+2021-11-16 13:45:34 [restartedMain] INFO o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 891 ms 
+2021-11-16 13:45:35 [restartedMain] INFO o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2021-11-16 13:45:35 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2021-11-16 13:45:35 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '' 
+2021-11-16 13:45:35 [restartedMain] INFO c.m.m.BoardFileUploadSpringBootMybatisApplication - Started BoardFileUploadSpringBootMybatisApplication in 1.792 seconds (JVM running for 2.408) 
+2021-11-16 13:45:54 [http-nio-8080-exec-1] INFO o.a.c.c.C.[.[.[/] - Initializing Spring DispatcherServlet 'dispatcherServlet' 
+2021-11-16 13:45:54 [http-nio-8080-exec-1] INFO o.s.w.s.DispatcherServlet - Initializing Servlet 'dispatcherServlet' 
+2021-11-16 13:45:54 [http-nio-8080-exec-1] INFO o.s.w.s.DispatcherServlet - Completed initialization in 2 ms 
+2021-11-16 13:46:05 [http-nio-8080-exec-2] INFO c.z.h.HikariDataSource - HikariPool-1 - Starting... 
+2021-11-16 13:46:06 [http-nio-8080-exec-2] INFO c.z.h.HikariDataSource - HikariPool-1 - Start completed. 
+2021-11-16 13:46:06 [http-nio-8080-exec-2] DEBUG c.m.m.d.L.login - ==>  Preparing: SELECT USER_SEQ as userSeq, USER_NAME as userName, USER_PASSWORD as userPassword, USER_EMAIL as userEmail, USER_PROFILE_IMAGE_URL, USER_REGISTER_DATE as userRegisterDate FROM USER WHERE USER_EMAIL = ? 
+2021-11-16 13:46:06 [http-nio-8080-exec-2] DEBUG c.m.m.d.L.login - ==> Parameters: tpgjs0527(String) 
+2021-11-16 13:46:06 [http-nio-8080-exec-2] DEBUG c.m.m.d.L.login - <==      Total: 0 
+2021-11-16 13:46:14 [http-nio-8080-exec-4] DEBUG c.m.m.d.L.login - ==>  Preparing: SELECT USER_SEQ as userSeq, USER_NAME as userName, USER_PASSWORD as userPassword, USER_EMAIL as userEmail, USER_PROFILE_IMAGE_URL, USER_REGISTER_DATE as userRegisterDate FROM USER WHERE USER_EMAIL = ? 
+2021-11-16 13:46:14 [http-nio-8080-exec-4] DEBUG c.m.m.d.L.login - ==> Parameters: tpgjs0527(String) 
+2021-11-16 13:46:14 [http-nio-8080-exec-4] DEBUG c.m.m.d.L.login - <==      Total: 0 
+2021-11-16 13:49:52 [http-nio-8080-exec-6] DEBUG c.m.m.d.L.login - ==>  Preparing: SELECT USER_SEQ as userSeq, USER_NAME as userName, USER_PASSWORD as userPassword, USER_EMAIL as userEmail, USER_PROFILE_IMAGE_URL, USER_REGISTER_DATE as userRegisterDate FROM USER WHERE USER_EMAIL = ? 
+2021-11-16 13:49:52 [http-nio-8080-exec-6] DEBUG c.m.m.d.L.login - ==> Parameters: user(String) 
+2021-11-16 13:49:52 [http-nio-8080-exec-6] DEBUG c.m.m.d.L.login - <==      Total: 1 
+2021-11-16 13:49:52 [http-nio-8080-exec-7] DEBUG c.m.m.d.B.boardList - ==>  Preparing: SELECT b.BOARD_ID, b.USER_SEQ, u.USER_NAME, u.USER_PROFILE_IMAGE_URL, b.TITLE, b.CONTENT, b.REG_DT, b.READ_COUNT FROM BOARD b, USER u WHERE b.USER_SEQ = u.USER_SEQ ORDER BY b.BOARD_ID DESC LIMIT ? OFFSET ? 
+2021-11-16 13:49:52 [http-nio-8080-exec-7] DEBUG c.m.m.d.B.boardList - ==> Parameters: 10(Integer), 0(Integer) 
+2021-11-16 13:49:52 [http-nio-8080-exec-7] DEBUG c.m.m.d.B.boardList - <==      Total: 10 
+2021-11-16 13:49:52 [http-nio-8080-exec-7] DEBUG c.m.m.d.B.boardListTotalCount - ==>  Preparing: SELECT COUNT(*) FROM BOARD 
+2021-11-16 13:49:52 [http-nio-8080-exec-7] DEBUG c.m.m.d.B.boardListTotalCount - ==> Parameters:  
+2021-11-16 13:49:52 [http-nio-8080-exec-7] DEBUG c.m.m.d.B.boardListTotalCount - <==      Total: 1 
+2021-11-16 13:50:10 [http-nio-8080-exec-8] DEBUG c.m.m.d.L.login - ==>  Preparing: SELECT USER_SEQ as userSeq, USER_NAME as userName, USER_PASSWORD as userPassword, USER_EMAIL as userEmail, USER_PROFILE_IMAGE_URL, USER_REGISTER_DATE as userRegisterDate FROM USER WHERE USER_EMAIL = ? 
+2021-11-16 13:50:10 [http-nio-8080-exec-8] DEBUG c.m.m.d.L.login - ==> Parameters: user(String) 
+2021-11-16 13:50:10 [http-nio-8080-exec-8] DEBUG c.m.m.d.L.login - <==      Total: 1 
+2021-11-16 13:50:10 [http-nio-8080-exec-9] DEBUG c.m.m.d.B.boardList - ==>  Preparing: SELECT b.BOARD_ID, b.USER_SEQ, u.USER_NAME, u.USER_PROFILE_IMAGE_URL, b.TITLE, b.CONTENT, b.REG_DT, b.READ_COUNT FROM BOARD b, USER u WHERE b.USER_SEQ = u.USER_SEQ ORDER BY b.BOARD_ID DESC LIMIT ? OFFSET ? 
+2021-11-16 13:50:10 [http-nio-8080-exec-9] DEBUG c.m.m.d.B.boardList - ==> Parameters: 10(Integer), 0(Integer) 
+2021-11-16 13:50:10 [http-nio-8080-exec-9] DEBUG c.m.m.d.B.boardList - <==      Total: 10 
+2021-11-16 13:50:10 [http-nio-8080-exec-9] DEBUG c.m.m.d.B.boardListTotalCount - ==>  Preparing: SELECT COUNT(*) FROM BOARD 
+2021-11-16 13:50:10 [http-nio-8080-exec-9] DEBUG c.m.m.d.B.boardListTotalCount - ==> Parameters:  
+2021-11-16 13:50:10 [http-nio-8080-exec-9] DEBUG c.m.m.d.B.boardListTotalCount - <==      Total: 1 
+2021-11-16 13:50:12 [http-nio-8080-exec-10] DEBUG c.m.m.d.B.boardUserReadCount - ==>  Preparing: SELECT count(*) FROM board_user_read WHERE board_id = ? and user_seq = ? 
+2021-11-16 13:50:12 [http-nio-8080-exec-10] DEBUG c.m.m.d.B.boardUserReadCount - ==> Parameters: 3162(Integer), 2(Integer) 
+2021-11-16 13:50:12 [http-nio-8080-exec-10] DEBUG c.m.m.d.B.boardUserReadCount - <==      Total: 1 
+2021-11-16 13:50:12 [http-nio-8080-exec-10] DEBUG c.m.m.d.B.boardUserReadInsert - ==>  Preparing: INSERT INTO board_user_read ( board_id, user_seq ) VALUES ( ?, ? ) 
+2021-11-16 13:50:12 [http-nio-8080-exec-10] DEBUG c.m.m.d.B.boardUserReadInsert - ==> Parameters: 3162(Integer), 2(Integer) 
+2021-11-16 13:50:12 [http-nio-8080-exec-10] DEBUG c.m.m.d.B.boardUserReadInsert - <==    Updates: 1 
+2021-11-16 13:50:12 [http-nio-8080-exec-10] DEBUG c.m.m.d.B.boardReadCountUpdate - ==>  Preparing: UPDATE board set READ_COUNT = READ_COUNT + 1 WHERE BOARD_ID = ? 
+2021-11-16 13:50:12 [http-nio-8080-exec-10] DEBUG c.m.m.d.B.boardReadCountUpdate - ==> Parameters: 3162(Integer) 
+2021-11-16 13:50:12 [http-nio-8080-exec-10] DEBUG c.m.m.d.B.boardReadCountUpdate - <==    Updates: 1 
+2021-11-16 13:50:12 [http-nio-8080-exec-10] DEBUG c.m.m.d.B.boardDetail - ==>  Preparing: SELECT b.BOARD_ID, b.USER_SEQ, u.USER_NAME, u.USER_PROFILE_IMAGE_URL, b.TITLE, b.CONTENT, b.REG_DT, b.READ_COUNT FROM BOARD b, USER u WHERE b.BOARD_ID = ? AND b.USER_SEQ = u.USER_SEQ 
+2021-11-16 13:50:12 [http-nio-8080-exec-10] DEBUG c.m.m.d.B.boardDetail - ==> Parameters: 3162(Integer) 
+2021-11-16 13:50:12 [http-nio-8080-exec-10] DEBUG c.m.m.d.B.boardDetail - <==      Total: 1 
+2021-11-16 13:50:12 [http-nio-8080-exec-10] DEBUG c.m.m.d.B.boardDetailFileList - ==>  Preparing: SELECT BOARD_ID, FILE_ID, FILE_NAME, FILE_SIZE, FILE_CONTENT_TYPE, FILE_URL, REG_DT FROM BOARD_FILE WHERE BOARD_ID = ? 
+2021-11-16 13:50:12 [http-nio-8080-exec-10] DEBUG c.m.m.d.B.boardDetailFileList - ==> Parameters: 3162(Integer) 
+2021-11-16 13:50:12 [http-nio-8080-exec-10] DEBUG c.m.m.d.B.boardDetailFileList - <==      Total: 0 
+2021-11-16 13:50:15 [http-nio-8080-exec-1] DEBUG c.m.m.d.B.boardUserReadCount - ==>  Preparing: SELECT count(*) FROM board_user_read WHERE board_id = ? and user_seq = ? 
+2021-11-16 13:50:15 [http-nio-8080-exec-1] DEBUG c.m.m.d.B.boardUserReadCount - ==> Parameters: 3157(Integer), 2(Integer) 
+2021-11-16 13:50:15 [http-nio-8080-exec-1] DEBUG c.m.m.d.B.boardUserReadCount - <==      Total: 1 
+2021-11-16 13:50:15 [http-nio-8080-exec-1] DEBUG c.m.m.d.B.boardUserReadInsert - ==>  Preparing: INSERT INTO board_user_read ( board_id, user_seq ) VALUES ( ?, ? ) 
+2021-11-16 13:50:15 [http-nio-8080-exec-1] DEBUG c.m.m.d.B.boardUserReadInsert - ==> Parameters: 3157(Integer), 2(Integer) 
+2021-11-16 13:50:15 [http-nio-8080-exec-1] DEBUG c.m.m.d.B.boardUserReadInsert - <==    Updates: 1 
+2021-11-16 13:50:15 [http-nio-8080-exec-1] DEBUG c.m.m.d.B.boardReadCountUpdate - ==>  Preparing: UPDATE board set READ_COUNT = READ_COUNT + 1 WHERE BOARD_ID = ? 
+2021-11-16 13:50:15 [http-nio-8080-exec-1] DEBUG c.m.m.d.B.boardReadCountUpdate - ==> Parameters: 3157(Integer) 
+2021-11-16 13:50:15 [http-nio-8080-exec-1] DEBUG c.m.m.d.B.boardReadCountUpdate - <==    Updates: 1 
+2021-11-16 13:50:15 [http-nio-8080-exec-1] DEBUG c.m.m.d.B.boardDetail - ==>  Preparing: SELECT b.BOARD_ID, b.USER_SEQ, u.USER_NAME, u.USER_PROFILE_IMAGE_URL, b.TITLE, b.CONTENT, b.REG_DT, b.READ_COUNT FROM BOARD b, USER u WHERE b.BOARD_ID = ? AND b.USER_SEQ = u.USER_SEQ 
+2021-11-16 13:50:15 [http-nio-8080-exec-1] DEBUG c.m.m.d.B.boardDetail - ==> Parameters: 3157(Integer) 
+2021-11-16 13:50:15 [http-nio-8080-exec-1] DEBUG c.m.m.d.B.boardDetail - <==      Total: 1 
+2021-11-16 13:50:15 [http-nio-8080-exec-1] DEBUG c.m.m.d.B.boardDetailFileList - ==>  Preparing: SELECT BOARD_ID, FILE_ID, FILE_NAME, FILE_SIZE, FILE_CONTENT_TYPE, FILE_URL, REG_DT FROM BOARD_FILE WHERE BOARD_ID = ? 
+2021-11-16 13:50:15 [http-nio-8080-exec-1] DEBUG c.m.m.d.B.boardDetailFileList - ==> Parameters: 3157(Integer) 
+2021-11-16 13:50:15 [http-nio-8080-exec-1] DEBUG c.m.m.d.B.boardDetailFileList - <==      Total: 0 
+2021-11-16 13:50:19 [http-nio-8080-exec-2] WARN o.s.v.DataBinder - Skipping URI variable 'boardId' because request contains bind value with same name. 
+2021-11-16 13:50:19 [http-nio-8080-exec-2] DEBUG c.m.m.d.B.boardUpdate - ==>  Preparing: UPDATE BOARD SET TITLE = ?, CONTENT = ? WHERE BOARD_ID = ? 
+2021-11-16 13:50:19 [http-nio-8080-exec-2] DEBUG c.m.m.d.B.boardUpdate - ==> Parameters: 42661111(String), <p>14266content</p>(String), 3157(Integer) 
+2021-11-16 13:50:19 [http-nio-8080-exec-2] DEBUG c.m.m.d.B.boardUpdate - <==    Updates: 1 
+2021-11-16 13:50:19 [http-nio-8080-exec-2] DEBUG c.m.m.d.B.boardFileUrlDeleteList - ==>  Preparing: SELECT FILE_URL FROM BOARD_FILE WHERE BOARD_ID = ? 
+2021-11-16 13:50:19 [http-nio-8080-exec-2] DEBUG c.m.m.d.B.boardFileUrlDeleteList - ==> Parameters: 3157(Integer) 
+2021-11-16 13:50:19 [http-nio-8080-exec-2] DEBUG c.m.m.d.B.boardFileUrlDeleteList - <==      Total: 0 
+2021-11-16 13:50:19 [http-nio-8080-exec-2] DEBUG c.m.m.d.B.boardFileDelete - ==>  Preparing: DELETE FROM BOARD_FILE WHERE BOARD_ID = ? 
+2021-11-16 13:50:19 [http-nio-8080-exec-2] DEBUG c.m.m.d.B.boardFileDelete - ==> Parameters: 3157(Integer) 
+2021-11-16 13:50:19 [http-nio-8080-exec-2] DEBUG c.m.m.d.B.boardFileDelete - <==    Updates: 0 
+2021-11-16 13:50:20 [http-nio-8080-exec-3] DEBUG c.m.m.d.B.boardList - ==>  Preparing: SELECT b.BOARD_ID, b.USER_SEQ, u.USER_NAME, u.USER_PROFILE_IMAGE_URL, b.TITLE, b.CONTENT, b.REG_DT, b.READ_COUNT FROM BOARD b, USER u WHERE b.USER_SEQ = u.USER_SEQ ORDER BY b.BOARD_ID DESC LIMIT ? OFFSET ? 
+2021-11-16 13:50:20 [http-nio-8080-exec-3] DEBUG c.m.m.d.B.boardList - ==> Parameters: 10(Integer), 0(Integer) 
+2021-11-16 13:50:20 [http-nio-8080-exec-3] DEBUG c.m.m.d.B.boardList - <==      Total: 10 
+2021-11-16 13:50:20 [http-nio-8080-exec-3] DEBUG c.m.m.d.B.boardListTotalCount - ==>  Preparing: SELECT COUNT(*) FROM BOARD 
+2021-11-16 13:50:20 [http-nio-8080-exec-3] DEBUG c.m.m.d.B.boardListTotalCount - ==> Parameters:  
+2021-11-16 13:50:20 [http-nio-8080-exec-3] DEBUG c.m.m.d.B.boardListTotalCount - <==      Total: 1 
+2021-11-16 16:51:20 [RMI TCP Connection(196)-127.0.0.1] INFO o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested. 
+2021-11-16 16:51:20 [RMI TCP Connection(196)-127.0.0.1] INFO c.z.h.HikariDataSource - HikariPool-1 - Shutdown initiated... 
+2021-11-16 16:51:20 [RMI TCP Connection(196)-127.0.0.1] INFO c.z.h.HikariDataSource - HikariPool-1 - Shutdown completed. 
+2021-11-16 16:51:29 [restartedMain] INFO c.m.m.BoardFileUploadSpringBootMybatisApplication - Starting BoardFileUploadSpringBootMybatisApplication using Java 1.8.0_292 on DESKTOP-CSD5KA7 with PID 3184 (C:\springboot\SpringBootVueBoardFileUploadMybatis\bin\main started by user in C:\springboot\SpringBootVueBoardFileUploadMybatis) 
+2021-11-16 16:51:29 [restartedMain] DEBUG c.m.m.BoardFileUploadSpringBootMybatisApplication - Running with Spring Boot v2.5.6, Spring v5.3.12 
+2021-11-16 16:51:29 [restartedMain] INFO c.m.m.BoardFileUploadSpringBootMybatisApplication - No active profile set, falling back to default profiles: default 
+2021-11-16 16:51:29 [restartedMain] INFO o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable 
+2021-11-16 16:51:29 [restartedMain] INFO o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG' 
+2021-11-16 16:51:30 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port(s): 8080 (http) 
+2021-11-16 16:51:30 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2021-11-16 16:51:30 [restartedMain] INFO o.a.c.c.StandardService - Starting service [Tomcat] 
+2021-11-16 16:51:30 [restartedMain] INFO o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.54] 
+2021-11-16 16:51:30 [restartedMain] INFO o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext 
+2021-11-16 16:51:30 [restartedMain] INFO o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 931 ms 
+2021-11-16 16:51:30 [restartedMain] INFO o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2021-11-16 16:51:30 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2021-11-16 16:51:30 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '' 
+2021-11-16 16:51:30 [restartedMain] INFO c.m.m.BoardFileUploadSpringBootMybatisApplication - Started BoardFileUploadSpringBootMybatisApplication in 1.903 seconds (JVM running for 2.618) 
+2021-11-16 16:52:10 [http-nio-8080-exec-1] INFO o.a.c.c.C.[.[.[/] - Initializing Spring DispatcherServlet 'dispatcherServlet' 
+2021-11-16 16:52:11 [http-nio-8080-exec-1] INFO o.s.w.s.DispatcherServlet - Initializing Servlet 'dispatcherServlet' 
+2021-11-16 16:52:11 [http-nio-8080-exec-1] INFO o.s.w.s.DispatcherServlet - Completed initialization in 3 ms 
+2021-11-16 16:52:30 [http-nio-8080-exec-3] INFO c.z.h.HikariDataSource - HikariPool-1 - Starting... 
+2021-11-16 16:52:30 [http-nio-8080-exec-3] INFO c.z.h.HikariDataSource - HikariPool-1 - Start completed. 
+2021-11-16 16:52:30 [http-nio-8080-exec-3] DEBUG c.m.m.d.L.login - ==>  Preparing: SELECT USER_SEQ as userSeq, USER_NAME as userName, USER_PASSWORD as userPassword, USER_EMAIL as userEmail, USER_PROFILE_IMAGE_URL, USER_REGISTER_DATE as userRegisterDate FROM USER WHERE USER_EMAIL = ? 
+2021-11-16 16:52:30 [http-nio-8080-exec-3] DEBUG c.m.m.d.L.login - ==> Parameters: tpgjs0527(String) 
+2021-11-16 16:52:30 [http-nio-8080-exec-3] DEBUG c.m.m.d.L.login - <==      Total: 0 
+2021-11-16 16:52:39 [http-nio-8080-exec-4] DEBUG c.m.m.d.L.login - ==>  Preparing: SELECT USER_SEQ as userSeq, USER_NAME as userName, USER_PASSWORD as userPassword, USER_EMAIL as userEmail, USER_PROFILE_IMAGE_URL, USER_REGISTER_DATE as userRegisterDate FROM USER WHERE USER_EMAIL = ? 
+2021-11-16 16:52:39 [http-nio-8080-exec-4] DEBUG c.m.m.d.L.login - ==> Parameters: tpgjs(String) 
+2021-11-16 16:52:39 [http-nio-8080-exec-4] DEBUG c.m.m.d.L.login - <==      Total: 1 
+2021-11-16 16:52:39 [http-nio-8080-exec-5] DEBUG c.m.m.d.B.boardList - ==>  Preparing: SELECT b.BOARD_ID, b.USER_SEQ, u.USER_NAME, u.USER_PROFILE_IMAGE_URL, b.TITLE, b.CONTENT, b.REG_DT, b.READ_COUNT FROM BOARD b, USER u WHERE b.USER_SEQ = u.USER_SEQ ORDER BY b.BOARD_ID DESC LIMIT ? OFFSET ? 
+2021-11-16 16:52:39 [http-nio-8080-exec-5] DEBUG c.m.m.d.B.boardList - ==> Parameters: 10(Integer), 0(Integer) 
+2021-11-16 16:52:39 [http-nio-8080-exec-5] DEBUG c.m.m.d.B.boardList - <==      Total: 10 
+2021-11-16 16:52:39 [http-nio-8080-exec-5] DEBUG c.m.m.d.B.boardListTotalCount - ==>  Preparing: SELECT COUNT(*) FROM BOARD 
+2021-11-16 16:52:39 [http-nio-8080-exec-5] DEBUG c.m.m.d.B.boardListTotalCount - ==> Parameters:  
+2021-11-16 16:52:39 [http-nio-8080-exec-5] DEBUG c.m.m.d.B.boardListTotalCount - <==      Total: 1 
+2021-11-16 16:54:32 [RMI TCP Connection(11)-127.0.0.1] INFO o.s.b.a.SpringApplicationAdminMXBeanRegistrar$SpringApplicationAdmin - Application shutdown requested. 
+2021-11-16 16:54:32 [RMI TCP Connection(11)-127.0.0.1] INFO c.z.h.HikariDataSource - HikariPool-1 - Shutdown initiated... 
+2021-11-16 16:54:32 [RMI TCP Connection(11)-127.0.0.1] INFO c.z.h.HikariDataSource - HikariPool-1 - Shutdown completed. 
+2021-11-16 16:54:45 [restartedMain] INFO c.m.m.BoardFileUploadSpringBootMybatisApplication - Starting BoardFileUploadSpringBootMybatisApplication using Java 1.8.0_292 on DESKTOP-CSD5KA7 with PID 15204 (C:\springboot\SpringBootVueBoardFileUploadMybatis\bin\main started by user in C:\springboot\SpringBootVueBoardFileUploadMybatis) 
+2021-11-16 16:54:45 [restartedMain] DEBUG c.m.m.BoardFileUploadSpringBootMybatisApplication - Running with Spring Boot v2.5.6, Spring v5.3.12 
+2021-11-16 16:54:45 [restartedMain] INFO c.m.m.BoardFileUploadSpringBootMybatisApplication - No active profile set, falling back to default profiles: default 
+2021-11-16 16:54:45 [restartedMain] INFO o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable 
+2021-11-16 16:54:45 [restartedMain] INFO o.s.b.d.e.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG' 
+2021-11-16 16:54:45 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port(s): 8080 (http) 
+2021-11-16 16:54:45 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"] 
+2021-11-16 16:54:45 [restartedMain] INFO o.a.c.c.StandardService - Starting service [Tomcat] 
+2021-11-16 16:54:45 [restartedMain] INFO o.a.c.c.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.54] 
+2021-11-16 16:54:45 [restartedMain] INFO o.a.c.c.C.[.[.[/] - Initializing Spring embedded WebApplicationContext 
+2021-11-16 16:54:45 [restartedMain] INFO o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 778 ms 
+2021-11-16 16:54:46 [restartedMain] INFO o.s.b.d.a.OptionalLiveReloadServer - LiveReload server is running on port 35729 
+2021-11-16 16:54:46 [restartedMain] INFO o.a.c.h.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"] 
+2021-11-16 16:54:46 [restartedMain] INFO o.s.b.w.e.t.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '' 
+2021-11-16 16:54:46 [restartedMain] INFO c.m.m.BoardFileUploadSpringBootMybatisApplication - Started BoardFileUploadSpringBootMybatisApplication in 1.581 seconds (JVM running for 2.226) 
+2021-11-16 16:55:18 [http-nio-8080-exec-1] INFO o.a.c.c.C.[.[.[/] - Initializing Spring DispatcherServlet 'dispatcherServlet' 
+2021-11-16 16:55:18 [http-nio-8080-exec-1] INFO o.s.w.s.DispatcherServlet - Initializing Servlet 'dispatcherServlet' 
+2021-11-16 16:55:18 [http-nio-8080-exec-1] INFO o.s.w.s.DispatcherServlet - Completed initialization in 1 ms 
+2021-11-16 16:55:27 [http-nio-8080-exec-2] INFO c.z.h.HikariDataSource - HikariPool-1 - Starting... 
+2021-11-16 16:55:27 [http-nio-8080-exec-2] INFO c.z.h.HikariDataSource - HikariPool-1 - Start completed. 
+2021-11-16 16:55:27 [http-nio-8080-exec-2] DEBUG c.m.m.d.L.login - ==>  Preparing: SELECT USER_SEQ as userSeq, USER_NAME as userName, USER_PASSWORD as userPassword, USER_EMAIL as userEmail, USER_PROFILE_IMAGE_URL, USER_REGISTER_DATE as userRegisterDate FROM USER WHERE USER_EMAIL = ? 
+2021-11-16 16:55:27 [http-nio-8080-exec-2] DEBUG c.m.m.d.L.login - ==> Parameters: tpgjs(String) 
+2021-11-16 16:55:27 [http-nio-8080-exec-2] DEBUG c.m.m.d.L.login - <==      Total: 1 
+2021-11-16 16:58:41 [http-nio-8080-exec-5] DEBUG c.m.m.d.L.login - ==>  Preparing: SELECT USER_SEQ as userSeq, USER_NAME as userName, USER_PASSWORD as userPassword, USER_EMAIL as userEmail, USER_PROFILE_IMAGE_URL, USER_REGISTER_DATE as userRegisterDate FROM USER WHERE USER_EMAIL = ? 
+2021-11-16 16:58:41 [http-nio-8080-exec-5] DEBUG c.m.m.d.L.login - ==> Parameters: tpgjs(String) 
+2021-11-16 16:58:41 [http-nio-8080-exec-5] DEBUG c.m.m.d.L.login - <==      Total: 1 
+2021-11-16 16:58:41 [http-nio-8080-exec-6] DEBUG c.m.m.d.B.boardList - ==>  Preparing: SELECT b.BOARD_ID, b.USER_SEQ, u.USER_NAME, u.USER_PROFILE_IMAGE_URL, b.TITLE, b.CONTENT, b.REG_DT, b.READ_COUNT FROM BOARD b, USER u WHERE b.USER_SEQ = u.USER_SEQ ORDER BY b.BOARD_ID DESC LIMIT ? OFFSET ? 
+2021-11-16 16:58:41 [http-nio-8080-exec-6] DEBUG c.m.m.d.B.boardList - ==> Parameters: 10(Integer), 0(Integer) 
+2021-11-16 16:58:41 [http-nio-8080-exec-6] DEBUG c.m.m.d.B.boardList - <==      Total: 10 
+2021-11-16 16:58:41 [http-nio-8080-exec-6] DEBUG c.m.m.d.B.boardListTotalCount - ==>  Preparing: SELECT COUNT(*) FROM BOARD 
+2021-11-16 16:58:41 [http-nio-8080-exec-6] DEBUG c.m.m.d.B.boardListTotalCount - ==> Parameters:  
+2021-11-16 16:58:41 [http-nio-8080-exec-6] DEBUG c.m.m.d.B.boardListTotalCount - <==      Total: 1 

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
+<mapper namespace="com.mycom.myboard.dao.AptDao">
+
+	
+	<select id="marker" parameterType="com.mycom.myboard.dto.AptParamDto" resultType="com.mycom.myboard.dto.AptDto">
+		select i.no, i.dong, i.AptName, i.lat, i.lng, d.dealAmount, d.rentMoney, i.buildYear, d.dealYear, d.dealMonth, d.dealDay, d.area, d.floor
+		  from houseinfo i,
+			   housedeal d,
+			   (select max(no) maxno from housedeal group by house_no ) md
+		 where i.no = d.house_no
+		   and d.no = md.maxno
+		   and i.lat Between #{swLat} and #{neLat}
+		   and i.lng Between #{swLng} and #{neLng}
+	</select>
+	
+	<select id="markerInfo" parameterType="com.mycom.myboard.dto.AptDto" resultType="com.mycom.myboard.dto.AptDto">
+		select i.no, i.dong, i.AptName, i.lat, i.lng, ltrim(d.dealAmount) dealAmount, d.rentMoney, i.buildYear, d.dealYear, d.dealMonth, d.dealDay, d.area, d.floor
+		  from houseinfo i,
+			   housedeal d,
+			   (select max(no) maxno from housedeal group by house_no ) md
+		 where i.no = d.house_no
+		   and d.no = md.maxno
+		   and i.aptName = #{aptName}
+	</select>
+	
+	<insert id="insertToInterest" parameterType="com.mycom.myboard.dto.InterestDto">
+		INSERT INTO user_interest ( USER_SEQ, house_no, aptName, dong, floor, area, dealAmount )
+		            VALUES ( #{userSeq}, #{house_no}, #{aptName}, #{dong}, #{floor}, #{area}, #{dealAmount})
+	</insert>
+	
+	<select id="interestList" parameterType="int" resultType="com.mycom.myboard.dto.InterestDto">
+		SELECT AptName, dong, floor, area, dealAmount 
+		  FROM happyhouse_rf.user_interest
+		 WHERE USER_SEQ = #{userSeq};
+	</select>
+	
+	<delete id="interestDelete" parameterType="string">
+		DELETE FROM user_interest WHERE AptName = #{aptName}
+	</delete>
+	
+</mapper>
