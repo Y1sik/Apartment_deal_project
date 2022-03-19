@@ -11,10 +11,10 @@
 3. [Project Period](#Project-Period)
 
 4. [프로젝트세팅](#프로젝트-세팅)
-
+<br>
+<br>
+<br>
    
-
-
 
 ## 📖 프로젝트 소개
 
@@ -28,7 +28,9 @@
 
   - 관심 매물 등록 페이지를 만들고자 함
 
-    
+<br>
+<br>
+<br>
 
 
 
@@ -40,18 +42,17 @@
 | SpringBoot | <img src="https://img.shields.io/badge/SpringBoot-80FF00?style=flat-square&logo=SpringBoot&logoColor=white"/> | sts-3.9.14.RELEASE |
 | DB         | <img src="https://img.shields.io/badge/MySQL-4169E1?style=plastic&logo=MySQL&logoColor=white"> | 5.7.x / 5.7.35     |
 | VUE        | <img src="https://img.shields.io/badge/vue-4169E1?style=plastic&logo=V&logoColor=white"> | vue2               |
-
-
-
+<br>
+<br>
+<br>
 
 
 ## **Project Period**
 
 2021.12.07 - 2022.12.28 (3주)
-
-
-
-
+<br>
+<br>
+<br>
 
 ## 프로젝트 세팅
 
